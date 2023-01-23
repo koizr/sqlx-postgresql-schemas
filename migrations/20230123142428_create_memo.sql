@@ -1,0 +1,5 @@
+CREATE TABLE memo (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    body TEXT NOT NULL
+);
