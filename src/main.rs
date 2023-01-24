@@ -18,5 +18,13 @@ async fn main() -> Result<(), sqlx::Error> {
         .await?;
     println!("{}", &result.secret_body.unwrap());
 
+    let result = sqlx::query!("SELECT * FROM memo").fetch_all(&pool).await?;
+    println!("{result:?}");
+
+    let result = sqlx::query!("SELECT * FROM secret.memo")
+        .fetch_all(&pool)
+        .await?;
+    println!("{result:?}");
+
     Ok(())
 }
